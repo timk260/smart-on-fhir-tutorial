@@ -72,7 +72,7 @@
       } else {
         onError();
       }
-
+alert('test');
     FHIR.oauth2.ready(onReady, onError);
     return ret.promise();
 
