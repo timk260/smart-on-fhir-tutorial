@@ -71,6 +71,8 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 */
+         var p = defaultPatient();
+
           ret.resolve(p);
         });        
       } else {
@@ -78,7 +80,7 @@
       }
     }
 
-    $('#smtitle').html("test version 005");
+    $('#smtitle').html("test version 006");
     FHIR.oauth2.ready(onReady, onError);
     return ret.promise();
 
