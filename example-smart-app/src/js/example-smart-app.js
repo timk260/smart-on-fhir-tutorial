@@ -7,7 +7,7 @@
       ret.reject();
     }
     function onPtError() {
-      console.log('error getting encounter data');
+      console.log('error getting encount er data');
       ret.reject();
     }
 
