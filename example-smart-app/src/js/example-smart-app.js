@@ -16,13 +16,7 @@
         var patient = smart.patient;
         var pt = patient.read();
         
-        var enc = smart.patient.api.fetchAll({
-            type: 'Encounter'
-        });
-        $.when(pt, enc).fail(onPtError);
-        $.when(pt, enc).done(function(patient, enc) {
-          $('#enc').html( JSON.stringify(patient, null, 4));
-        });
+
         
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
