@@ -11,6 +11,7 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
+        alert("Ready")
         var enc = smart.patient.api.fetchall({
                     type: 'Encounter'
          });
@@ -19,7 +20,7 @@
           $('#enc').html(JSON.stringify(patient));
         };
         
-        
+        alert("done");
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
