@@ -11,6 +11,15 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
+        var enc = smart.patient.api.fetchall({
+                    type: 'Encounter'
+         });
+        $.when(pt, enc).fail(onError);
+        $.when(pt, obv).done(function(patient, enc) {
+          $('#enc').html(JSON.stringify(patient));
+        };
+        
+        
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
@@ -71,7 +80,6 @@
       } else {
         onError();
       }
-    }
 
     FHIR.oauth2.ready(onReady, onError);
     return ret.promise();
