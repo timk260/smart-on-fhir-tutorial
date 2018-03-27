@@ -16,11 +16,6 @@
         var patient = smart.patient;
         var pt = patient.read();
         
-        
-        var enc = smart.patient.api.fetchAll({
-                    type: 'Encounter'
-                  });
-        $.when(pt, enc).fail(onError);
 
 
         var obv = smart.patient.api.fetchAll({
