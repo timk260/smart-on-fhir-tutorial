@@ -6,18 +6,11 @@
       console.log('Loading error', arguments);
       ret.reject();
     }
-    function onPtError() {
-      console.log('error getting encount er data');
-      ret.reject();
-    }
 
     function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
-        
-
-        
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
