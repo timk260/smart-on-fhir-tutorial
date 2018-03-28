@@ -15,20 +15,22 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
-
+console.log('create enc');
          var enc = smart.patient.api.fetchAll({
                     type: 'Encounter',
                     query: {
 						class: "inpatient"
 					}
                   });
-
+console.log(JSON.stringify(enc));
         $.when(pt, enc).fail(onError);
+	      /*
         $.when(pt, enc).done(function(patient, enc) {
         	var p = defaultPatient();
  			ret.resolve(p);
 			console.log(JSON.stringify(patient, null, 4);
 		});
+		*/
 		  /*
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
