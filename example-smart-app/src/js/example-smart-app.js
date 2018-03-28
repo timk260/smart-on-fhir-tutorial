@@ -18,7 +18,7 @@
          var enc = smart.patient.api.fetchAll({
                     type: 'Encounter',
                     query: {
-						class: "inpatient"
+						class: "Inpatient"
 					}
                   });
         $.when(pt, enc).fail(onEncError);
