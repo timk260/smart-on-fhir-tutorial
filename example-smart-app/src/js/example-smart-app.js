@@ -119,7 +119,7 @@
       }
     }
 
-    $('#smtitle').html("test version 014");
+    $('#smtitle').html("test version 015");
     FHIR.oauth2.ready(onReady, onError);
     return ret.promise();
 
