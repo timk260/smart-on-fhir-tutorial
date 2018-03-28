@@ -30,12 +30,11 @@
 		for(var i=0; i<enc.data.entry.length; i++) {
 			var thisEnc=enc.data.entry[i].resource
 			if (thisEnc.class == 'inpatient') {
-
+				text = text + 'val='+JSON.stringify(enc.data.entry[i]) + '<br>';
 			} else {
 			}
 		}
-		var content = 'val='+JSON.stringify(enc.data.entry[0]);
-		$('#enc').html(content);
+		$('#enc').html(text);
 	});
 
 		  /*
