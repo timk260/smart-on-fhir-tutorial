@@ -26,7 +26,7 @@
 	$.when(pt, enc).done(function(patient, enc) {
 		$('#holder').show();
 		$('#loading').hide();
-		$('#enc').html('val='+JSON.stringify(enc.data.resourceType));
+		$('#enc').html('val='+JSON.stringify(enc.data.entry[0]));
 	});
 
 		  /*
@@ -92,7 +92,7 @@
       }
     }
 
-    $('#smtitle').html("test version 010");
+    $('#smtitle').html("test version 011");
     FHIR.oauth2.ready(onReady, onError);
     return ret.promise();
 
