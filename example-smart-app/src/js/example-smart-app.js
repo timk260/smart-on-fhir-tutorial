@@ -16,25 +16,18 @@
         var patient = smart.patient;
         var pt = patient.read();
          var enc = smart.patient.api.fetchAll({
-                    type: 'Encounter',
-                    query: {
-						class: "Inpatient"
-					}
-                  });
+         	type: 'Encounter',
+		query: {
+			class: {"Inpatient"}
+		}
+	 });
         $.when(pt, enc).fail(onEncError);
 	$.when(pt, enc).done(function(patient, enc) {
 		$('#holder').show();
 		$('#loading').hide();
-		$('#enc').html(JSON.stringify(enc.encounter[0]));
+		$('#enc').html(JSON.stringify(enc));
 	});
 
-	      /*
-        $.when(pt, enc).done(function(patient, enc) {
-        	var p = defaultPatient();
- 			ret.resolve(p);
-			console.log(JSON.stringify(patient, null, 4);
-		});
-		*/
 		  /*
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
@@ -98,7 +91,7 @@
       }
     }
 
-    $('#smtitle').html("test version 007");
+    $('#smtitle').html("test version 008");
     FHIR.oauth2.ready(onReady, onError);
     return ret.promise();
 
