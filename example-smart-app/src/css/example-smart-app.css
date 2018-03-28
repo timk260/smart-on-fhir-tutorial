@@ -2,7 +2,7 @@ ul#inptenc li{
     list-style-type: none;
     border: 1px solid;
     margin-bottom: 20px;
-    padding: 10px;
+    padding-left: 10px;
     width: 60%;
 }
 
