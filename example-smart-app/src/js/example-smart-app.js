@@ -19,7 +19,7 @@
          	type: 'Encounter',
 		query: {
 			class: {
-				inpatient
+				'inpatient'
 			}
 		}
 	 });
