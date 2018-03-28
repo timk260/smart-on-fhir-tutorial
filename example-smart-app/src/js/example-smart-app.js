@@ -30,7 +30,9 @@
 		for(var i=0; i<enc.data.entry.length; i++) {
 			var thisEnc=enc.data.entry[i].resource
 			if (thisEnc.class == 'inpatient') {
-				text = text + thisEnc.display;
+				text = text + 'val='+JSON.stringify(enc.data.entry[i]) + '<br>';
+
+	//			text = text + thisEnc.display;
 			} else {
 			}
 		}
