@@ -26,7 +26,7 @@
 	$.when(pt, enc).done(function(patient, enc) {
 		$('#holder').show();
 		$('#loading').hide();
-		$('#enc').html('items=' + enc.data.length + '<br>' + Object.keys(enc.data.resourceType[0]));
+		$('#enc').html('items=' + enc.data + '<br>' + Object.keys(enc.data[0]));
 	});
 
 		  /*
