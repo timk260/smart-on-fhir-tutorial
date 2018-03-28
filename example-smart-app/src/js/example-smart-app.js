@@ -24,9 +24,20 @@
 	 });
         $.when(pt, enc).fail(onEncError);
 	$.when(pt, enc).done(function(patient, enc) {
+		var text;
 		$('#holder').show();
 		$('#loading').hide();
-		$('#enc').html('val='+JSON.stringify(enc.data.entry[0].resource));
+		for(var i=0; i<enc.data.entry.length; i++) {
+			var thisEnc=enc.data.entry[i].resource
+			if (thisEnc.class == 'inpatient') {
+				text = '{ 
+					"facility" : thisEnc.,
+				}';
+			} else {
+			}
+		}
+		var content = 'val='+JSON.stringify(enc.data.entry[0]);
+		$('#enc').html(content);
 	});
 
 		  /*
