@@ -24,13 +24,14 @@
 	 });
         $.when(pt, enc).fail(onEncError);
 	$.when(pt, enc).done(function(patient, enc) {
-		var text;
+		var text='';
 		$('#holder').show();
 		$('#loading').hide();
+		text = '{ "en;
 		for(var i=0; i<enc.data.entry.length; i++) {
 			var thisEnc=enc.data.entry[i].resource
 			if (thisEnc.class == 'inpatient') {
-				text = text + 'val='+JSON.stringify(enc.data.entry[i]) + '<br>';
+				text = text + thisEnc.display;
 			} else {
 			}
 		}
