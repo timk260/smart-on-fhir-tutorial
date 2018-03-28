@@ -41,13 +41,15 @@
 		p.lname = lname;
 		//p.age = parseInt(calculateAge(dob));
 
+		text = '<ul id="inptenc">';
 		for(var i=0; i<enc.data.entry.length; i++) {
 			var thisEnc=enc.data.entry[i].resource
 			if (thisEnc.class == 'inpatient') {
-				text = text + thisEnc.text.div;
+				text = text + '<li>' + thisEnc.text.div + '</li>';
 			} else {
 			}
 		}		
+		text = text + '</ul>';
 		
 		$('#enc').html(text);
 
