@@ -17,6 +17,7 @@
         var pt = patient.read();
          var enc = smart.patient.api.search({
          	type: 'Encounter',
+		 class: 'inpatient',
 		query: {
 			class: 'inpatient'
 		}
