@@ -15,11 +15,10 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
-         var enc = smart.patient.api.fetchAll({
+         var enc = smart.patient.api.search({
          	type: 'Encounter',
 		query: {
-			class: 'inpatient',
-			type: 'inpatient'
+			class: 'inpatient'
 		}
 	 });
         $.when(pt, enc).fail(onEncError);
