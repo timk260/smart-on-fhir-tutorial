@@ -18,7 +18,7 @@
          var enc = smart.patient.api.search({
          	type: 'Encounter',
 		query: {
-			class: 'inpatient'
+			class: 'inpatient+IMP'
 		}
 	 });
         $.when(pt, enc).fail(onEncError);
@@ -44,17 +44,16 @@
 		text = '<ul id="inptenc">';
 		for(var i=0; i<enc.data.entry.length; i++) {
 			var thisEnc=enc.data.entry[i].resource
-			if (thisEnc.class == 'inpatient') {
-				text = text + '<li>' + thisEnc.text.div + '</li>';
+			if (thisEnc.class == 'inpatient' || true) { // TODO - take away true
+				text = text + '<li>' + thisEnc.text.div + JSON.stringify(thisEnc) +'</li>';
 			} else {
 			}
-		}		
+		}
 		text = text + '</ul>';
-		
+
 		$('#enc').html(text);
 
 		ret.resolve(p);  // return the patient info to the caller
-
 	});
 
 		  /*
