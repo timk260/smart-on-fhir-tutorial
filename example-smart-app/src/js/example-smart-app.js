@@ -27,7 +27,6 @@
 		var text='';
 		$('#holder').show();
 		$('#loading').hide();
-		text = '{ "en;
 		for(var i=0; i<enc.data.entry.length; i++) {
 			var thisEnc=enc.data.entry[i].resource
 			if (thisEnc.class == 'inpatient') {
