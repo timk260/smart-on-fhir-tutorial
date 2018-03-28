@@ -27,6 +27,22 @@
 		var text='';
 		$('#holder').show();
 		$('#loading').hide();
+		
+		var gender = patient.gender;
+		var dob = new Date(patient.birthDate);
+		var day = dob.getDate();
+		var monthIndex = dob.getMonth() + 1;
+		var year = dob.getFullYear();
+
+		var dobStr = monthIndex + '/' + day + '/' + year;
+		var fname = '';
+		var lname = '';
+
+		if (typeof patient.name[0] !== 'undefined') {
+			fname = patient.name[0].given.join(' ');
+			lname = patient.name[0].family.join(' ');
+		}
+		
 		for(var i=0; i<enc.data.entry.length; i++) {
 			var thisEnc=enc.data.entry[i].resource
 			if (thisEnc.class == 'inpatient') {
