@@ -30,7 +30,7 @@
 		for(var i=0; i<enc.data.entry.length; i++) {
 			var thisEnc=enc.data.entry[i].resource
 			if (thisEnc.class == 'inpatient') {
-				text = text + 'val='+JSON.stringify(enc.data.entry[i].resource.text.div) + '<br>';
+				text = text + thisEnc.text.div);
 
 	//			text = text + thisEnc.display;
 			} else {
@@ -102,7 +102,7 @@
       }
     }
 
-    $('#smtitle').html("test version 012");
+    $('#smtitle').html("test version 013");
     FHIR.oauth2.ready(onReady, onError);
     return ret.promise();
 
