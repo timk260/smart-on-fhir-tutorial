@@ -22,8 +22,12 @@ console.log('create enc');
 						class: "inpatient"
 					}
                   });
+	      console.log('created');
 console.log(JSON.stringify(enc));
         $.when(pt, enc).fail(onError);
+	$.when(pt, enc).done(function(patient, enc) {
+	});
+console.log('done');
 	      /*
         $.when(pt, enc).done(function(patient, enc) {
         	var p = defaultPatient();
