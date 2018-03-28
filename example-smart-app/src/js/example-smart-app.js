@@ -18,7 +18,7 @@
          var enc = smart.patient.api.search({
          	type: 'Encounter',
 		query: {
-			class: 'inpatient+IMP'
+			class: 'inpatient'
 		}
 	 });
         $.when(pt, enc).fail(onEncError);
@@ -44,8 +44,8 @@
 		text = '<ul id="inptenc">';
 		for(var i=0; i<enc.data.entry.length; i++) {
 			var thisEnc=enc.data.entry[i].resource
-			if (thisEnc.class == 'inpatient' || true) { // TODO - take away true
-				text = text + '<li>' + thisEnc.text.div + JSON.stringify(thisEnc) +'</li>';
+			if (thisEnc.class == 'inpatient' ) {
+				text = text + '<li>' + JSON.stringify(thisEnc) +'</li>';
 			} else {
 			}
 		}
@@ -119,7 +119,7 @@
       }
     }
 
-    $('#smtitle').html("test version 015");
+    $('#smtitle').html("test version 016");
     FHIR.oauth2.ready(onReady, onError);
     return ret.promise();
 
