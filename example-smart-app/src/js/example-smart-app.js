@@ -17,7 +17,6 @@
         var pt = patient.read();
          var enc = smart.patient.api.search({
          	type: 'Encounter',
-		 class: 'inpatient',
 		query: {
 			class: 'inpatient'
 		}
@@ -27,14 +26,6 @@
 		var text='';
 		$('#holder').show();
 		$('#loading').hide();
-		
-		var gender = patient.gender;
-		var dob = new Date(patient.birthDate);
-		var day = dob.getDate();
-		var monthIndex = dob.getMonth() + 1;
-		var year = dob.getFullYear();
-
-		var dobStr = monthIndex + '/' + day + '/' + year;
 		var fname = '';
 		var lname = '';
 
@@ -42,17 +33,26 @@
 			fname = patient.name[0].given.join(' ');
 			lname = patient.name[0].family.join(' ');
 		}
-		
+		var gender = patient.gender;
+
+		var p = defaultPatient();
+		p.gender = gender;
+		p.fname = fname;
+		p.lname = lname;
+		//p.age = parseInt(calculateAge(dob));
+
 		for(var i=0; i<enc.data.entry.length; i++) {
 			var thisEnc=enc.data.entry[i].resource
 			if (thisEnc.class == 'inpatient') {
 				text = text + thisEnc.text.div;
-
-	//			text = text + thisEnc.display;
 			} else {
 			}
-		}
+		}		
+		
 		$('#enc').html(text);
+
+		ret.resolve(p);  // return the patient info to the caller
+
 	});
 
 		  /*
@@ -118,7 +118,7 @@
       }
     }
 
-    $('#smtitle').html("test version 013");
+    $('#smtitle').html("test version 014");
     FHIR.oauth2.ready(onReady, onError);
     return ret.promise();
 
