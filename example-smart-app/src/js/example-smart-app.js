@@ -15,6 +15,21 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
+
+         var enc = smart.patient.api.fetchAll({
+                    type: 'Encounter',
+                    query: {
+						class: "inpatient"
+					}
+                  });
+
+        $.when(pt, enc).fail(onError);
+        $.when(pt, enc).done(function(patient, enc) {
+        	var p = defaultPatient();
+ 			ret.resolve(p);
+			console.log(JSON.stringify(patient, null, 4);
+		});
+		  /*
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
@@ -29,7 +44,6 @@
         $.when(pt, obv).fail(onError);
 
         $.when(pt, obv).done(function(patient, obv) {
-          /*
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
           var dob = new Date(patient.birthDate);
@@ -70,17 +84,15 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
-*/
-         var p = defaultPatient();
 
           ret.resolve(p);
-        });        
+        });        */
       } else {
         onError();
       }
     }
 
-    $('#smtitle').html("test version 006");
+    $('#smtitle').html("test version 007");
     FHIR.oauth2.ready(onReady, onError);
     return ret.promise();
 
