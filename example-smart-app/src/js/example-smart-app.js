@@ -24,8 +24,7 @@
         $.when(pt, enc).fail(onEncError);
 	$.when(pt, enc).done(function(patient, enc) {
 		var text='';
-		$('#holder').show();
-		$('#loading').hide();
+
 		var fname = '';
 		var lname = '';
 
@@ -52,7 +51,8 @@
 		text = text + '</ul>';
 
 		$('#enc').html(text);
-
+		$('#holder').show();
+		$('#loading').hide();
 		ret.resolve(p);  // return the patient info to the caller
 	});
 
